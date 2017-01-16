@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Data Traceability Platform Visualizer">
+    <meta name="author" content="Tobias Rene Mayer and Benoit Renault">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/simple-sidebar.css">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <title>Data Traceability Platform Visualizer</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">DTP Visualizer</a>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa fa-table" aria-hidden="true"></i>
+              Table View
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+              Graph View<span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa fa-question" aria-hidden="true"></i>
+              Help
+            </a>
+          </li>
+        </ul>
+
+        <label class="custom-file">
+          <input type="file" id="file" class="custom-file-input">
+          <span class="custom-file-control"></span>
+        </label>
+      </div>
+    </nav>
+
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+        <div class="container">
+          <form>
+            <!-- Type filter -->
+            <fieldset class="form-group">
+              <legend>Type</legend>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="">
+                  Block
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="">
+                  Transaction
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="">
+                  Vote
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="">
+                  DLE
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Transaction filter -->
+            <fieldset class="form-group">
+              <legend>Transaction mode</legend>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="transactionModeRadios" id="absoluteModeRadio" value="absoluteMode">
+                  Absolute
+                </label>
+              </div>
+              <div class="form-check">
+              <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="transactionModeRadios" id="relativeModeRadio" value="relativeMode">
+                  Relative
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Block Status filter,-->
+            <fieldset class="form-group">
+              <legend>Block status</legend>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="">
+                  Decided valid
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="">
+                  Decided Invalid
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="">
+                  Undecided
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Time Period filter -->
+
+            <!-- Voter filter -->
+            <div class="form-group">
+              <label for="votersTextarea">Voters</label>
+              <textarea class="form-control" id="votersTextarea" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+      <!-- /#sidebar-wrapper -->
+
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="container-fluid">
+                <div class="row control-div">
+                  <div class="col-md-2">
+                    <button href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">
+                      <i class="fa fa-filter" aria-hidden="true"></i>
+                      Display filters
+                    </button>
+                  </div>
+                  <div class="col-md-3">
+                    <input class="form-control" type="search" placeholder="Full-text search" id="example-search-input">
+                  </div>
+                  <div class="col-md-2 offset-md-1">
+                    <div class="dropdown pull-right" style="width:100%">
+                      <button class="btn btn-secondary btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Storage
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:100%">
+                        <a class="dropdown-item" href="#">Storage</a>
+                        <a class="dropdown-item" href="#">Another layer</a>
+                        <a class="dropdown-item" href="#">Yet another layer</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <ul class="nav nav-pills pull-right">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#">Blocks</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Transactions</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Vote</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link disabled" href="#">DLE</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="row control-div">
+                  <div class="col-md-4">
+                    <span id="file_stats">
+                      1.034 blocks (9.385 transactions)
+                    </span>
+                  </div>
+                  <div class="col-md-1 offset-md-6">
+                    <span class="pull-right">Display :</span>
+                  </div>
+                  <div class="col-md-1">
+                    <div class="dropdown pull-left">
+                      <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        100
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">50</a>
+                        <a class="dropdown-item" href="#">100</a>
+                        <a class="dropdown-item" href="#">500</a>
+                        <a class="dropdown-item" href="#">1000</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class ="row">
+                  <div class ="col-12">
+                    <div class="table-responsive ">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>ID</th>
+                            <th>Timestamp</th>
+                            <th>Status</th>
+                            <th>CreatorPubKey</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr> <!-- Loop over this element -->
+                            <td>1a64731071...</td> <!-- Need previous manipulation or angular filter here to only display the first 10 (or maybe a little more) characters from .creatorPubKey attribute and add dots -->
+                            <td>2016-10-08 10:13:11</td> <!-- Need an angular date filter here on the .timestamp attribute to -->
+                            <td>Decided valid</td> <!-- Need previous manipulation or an angular maj filter here on the status.status attribute so that only the first char is replaced by a maj and to replace the "_" by space -->
+                            <td>2e0e571351...</td> <!-- Need previous manipulation or angular filter here to only display the first 10 (or maybe a little more) characters rfom .id attribute and add dots-->
+                          </tr>
+                          <tr>
+                            <td>djio731071...</td>
+                            <td>2016-10-08 11:14:15</td>
+                            <td>Undecided</td>
+                            <td>hdye571351...</td>
+                          </tr>
+                          <tr>
+                            <td>gye7731071...</td>
+                            <td>2016-11-12 16:34:55</td>
+                            <td>Decided valid</td>
+                            <td>hude571351...</td>
+                          </tr>
+                          <tr>
+                            <td>dhji731071...</td>
+                            <td>2016-12-18 08:13:12</td>
+                            <td>Decided invalid</td>
+                            <td>89yu571351...</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- /#table-responsive -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- ** Scripts ** -->
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/tether.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+  </body>
+</html>
