@@ -268,7 +268,9 @@
                             data-placement="top"
                             data-original-title="Preview"
                             data-trigger="hover"
-                            data-html="true"> <!-- Loop over this element but careful to change id!!!!-->
+                            data-html="true"
+                            data-toggle="modal"
+                            data-target="#bd-example-modal-lg"> <!-- Loop over this element but careful to change id!!!!-->
                             <td>1a64731071...</td> <!-- Need previous manipulation or angular filter here to only display the first 10 (or maybe a little more) characters from .creatorPubKey attribute and add dots -->
                             <td>2016-10-08 10:13:11</td> <!-- Need an angular date filter here on the .timestamp attribute to -->
                             <td>Decided valid</td> <!-- Need previous manipulation or an angular maj filter here on the status.status attribute so that only the first char is replaced by a maj and to replace the "_" by space -->
@@ -340,6 +342,32 @@
       <!-- /#page-content-wrapper -->
     </div>
     <!-- /#wrapper -->
+
+    <!-- Modal -->
+    <div id="bd-example-modal-lg" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Detail View - BLOCK</h5><!-- BLOCK is to be changed depending on the type of node -->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-3">
+                  ID
+                </div>
+                <div class="col-9">
+                  1a6473107181a647uU9h4731071
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- ** Scripts ** -->
 
