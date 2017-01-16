@@ -15,3 +15,16 @@ $(document).on('change', '#file', function(){
     $('.custom-file-control').css('content', '');
   }
 });
+
+// Slider initialization
+$("#timePeriodSlider").slider();
+
+$("#timePeriodSlider").change(function() {
+  var minTime = new Date($(this).siblings('.slider').find('.min-slider-handle').attr('aria-valuenow') * 1000);
+  var maxTime = new Date($(this).siblings('.slider').find('.max-slider-handle').attr('aria-valuenow') * 1000);
+  $('#leftTimePeriod').text(minTime.getFullYear() + '-' + minTime.getMonth() + '-' + minTime.getDate());
+  $('#rightTimePeriod').text(maxTime.getFullYear() + '-' + maxTime.getMonth() + '-' + maxTime.getDate());
+});
+
+// Popovers initialization
+$('#popoverData').popover();

@@ -14,6 +14,12 @@ body {
   background-color: #eee;
 }
 
+.sponsor-logo {
+  height: 50px;
+  width: auto;
+  margin: 20px;
+}
+
 /*
 Extra small devices (portrait phones, less than 576px)
 No media query since this is the default in Bootstrap

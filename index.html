@@ -10,6 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/simple-sidebar.css">
+    <link rel="stylesheet" href="css/bootstrap-slider.min.css">
 
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -59,86 +60,120 @@
     <div id="wrapper">
       <!-- Sidebar -->
       <div id="sidebar-wrapper">
-        <div class="container">
+        <div class="container-fluid">
           <form>
-            <!-- Type filter -->
-            <fieldset class="form-group">
-              <legend>Type</legend>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="">
-                  Block
-                </label>
+            <div class="row">
+              <!-- Type filter -->
+              <div class="col-md-6">
+                <fieldset class="form-group">
+                  <legend>Type</legend>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" value="">
+                      Block
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" value="">
+                      Transaction
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" value="">
+                      Vote
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" value="">
+                      DLE
+                    </label>
+                  </div>
+                </fieldset>
               </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="">
-                  Transaction
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="">
-                  Vote
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="">
-                  DLE
-                </label>
-              </div>
-            </fieldset>
 
-            <!-- Transaction filter -->
-            <fieldset class="form-group">
-              <legend>Transaction mode</legend>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="transactionModeRadios" id="absoluteModeRadio" value="absoluteMode">
-                  Absolute
-                </label>
+              <!-- Transaction filter -->
+              <div class=col-md-6>
+                <fieldset class="form-group">
+                  <legend>Transaction mode</legend>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="transactionModeRadios" id="absoluteModeRadio" value="absoluteMode">
+                      Absolute
+                    </label>
+                  </div>
+                  <div class="form-check">
+                  <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="transactionModeRadios" id="relativeModeRadio" value="relativeMode">
+                      Relative
+                    </label>
+                  </div>
+                </fieldset>
               </div>
-              <div class="form-check">
-              <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="transactionModeRadios" id="relativeModeRadio" value="relativeMode">
-                  Relative
-                </label>
-              </div>
-            </fieldset>
-
-            <!-- Block Status filter,-->
-            <fieldset class="form-group">
-              <legend>Block status</legend>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="">
-                  Decided valid
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="">
-                  Decided Invalid
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="">
-                  Undecided
-                </label>
-              </div>
-            </fieldset>
-
-            <!-- Time Period filter -->
-
-            <!-- Voter filter -->
-            <div class="form-group">
-              <label for="votersTextarea">Voters</label>
-              <textarea class="form-control" id="votersTextarea" rows="3"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <!-- Block Status filter,-->
+            <div class="row">
+              <div class="col-md-12">
+                <fieldset class="form-group">
+                  <legend>Block status</legend>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" value="">
+                      Decided valid
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" value="">
+                      Decided Invalid
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" value="">
+                      Undecided
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+
+            <!-- Time Period filter -->
+            <div class="row">
+              <div class="col-md-12">
+                <legend>Time period</legend>
+                <div id="timePeriod">
+                  <span id="leftTimePeriod">
+                    2016-10-08
+                  </span>
+                   /
+                  <span id="rightTimePeriod">
+                    2016-12-18
+                  </span>
+                </div>
+                <span id="minTimePeriod">
+                  Min: 2016-10-08<!-- Min Timestamp to date (no hour) with angular filter -->
+                </span>
+                  <!-- For initial range, put the min and max values. For the steps we will see (if possible, always have like 20 steps between min and max). -->
+                  <input id="timePeriodSlider" type="text" class="span2" value="" data-slider-min="1475921591" data-slider-max="1482048792" data-slider-step="500" data-slider-value="[1475921591,1482048792]"/>
+                <span id="maxTimePeriod">
+                  Max:2016-12-18<!-- Max Timestamp to date (no hour) with angular filter -->
+                </span>
+              </div>
+            </div>
+
+            <!-- Voter filter -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <legend>Voters</legend>
+                  <textarea class="form-control" id="votersTextarea" rows="1"></textarea>
+                </div>
+              </div>
+            </div>
           </form>
         </div>
       </div>
@@ -227,7 +262,13 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr> <!-- Loop over this element -->
+                          <tr id="popoverData"
+                            data-content="<div class='container-fluid'><div class='row'><div class='col-3'>ID</div><div class='col-9'>1a6473107181a647uU9h4731071</div></div></div>"
+                            rel="popover"
+                            data-placement="top"
+                            data-original-title="Preview"
+                            data-trigger="hover"
+                            data-html="true"> <!-- Loop over this element but careful to change id!!!!-->
                             <td>1a64731071...</td> <!-- Need previous manipulation or angular filter here to only display the first 10 (or maybe a little more) characters from .creatorPubKey attribute and add dots -->
                             <td>2016-10-08 10:13:11</td> <!-- Need an angular date filter here on the .timestamp attribute to -->
                             <td>Decided valid</td> <!-- Need previous manipulation or an angular maj filter here on the status.status attribute so that only the first char is replaced by a maj and to replace the "_" by space -->
@@ -254,6 +295,25 @@
                         </tbody>
                       </table>
                     </div>
+
+                    <nav aria-label="...">
+                      <ul class="pagination justify-content-end">
+                        <li class="page-item disabled">
+                          <span class="page-link">Previous</span>
+                        </li>
+                        <li class="page-item active">
+                          <span class="page-link">
+                            1
+                            <span class="sr-only">(current)</span>
+                          </span>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                          <a class="page-link" href="#">Next</a>
+                        </li>
+                      </ul>
+                    </nav>
                     <!-- /#table-responsive -->
                   </div>
                 </div>
@@ -261,6 +321,21 @@
             </div>
           </div>
         </div>
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="container">
+            <div class="row">
+              <span>Data Traceability Platform by <a href="https://sites.google.com/site/tobiasrmayer/" target="_blank">Tobias Rene Mayer</a>, Visualizer by <a href="http://littleroot.net/" target="_blank">Benoit Renault</a>.</span>
+            </div>
+            <div class="row justify-content-center">
+              <span>A project sponsored by :</span>
+            </div>
+            <div class="row justify-content-center">
+              <img class="sponsor-logo" src="assets/logo_liris_bw.png">
+              <img class="sponsor-logo" src="assets/logo_insa_bw.png">
+            </div>
+          </div>
+        </footer>
       </div>
       <!-- /#page-content-wrapper -->
     </div>
@@ -272,6 +347,7 @@
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/tether.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-slider.min.js"></script>
     <script src="js/custom.js"></script>
   </body>
 </html>
