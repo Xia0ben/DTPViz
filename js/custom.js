@@ -1,9 +1,3 @@
-// Menu Toggle Script
-$("#menu-toggle").click(function(e) {
-     e.preventDefault();
-     $("#wrapper").toggleClass("toggled");
-});
-
 // File loader automatic text changer
 $(document).on('change', '#file', function(){
   if (this !== undefined && this.files !== undefined && this.files.length !== 0) {
