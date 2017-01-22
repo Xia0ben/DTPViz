@@ -1,0 +1,12 @@
+{
+  "id": "<hash of the dle>",
+  "version": "<dle model version>",
+  "dle": {
+    "transaction": "<transaction id storing this dle>",
+    "layer": "<layer within the transaction the dle is related to>",
+    "type": "<dle type>",
+    "dataDle": ["<list of dle data elements>"],
+    "dataMeta": ["<list of metadata to the corresponding dle data>"],
+    "dataOther": ["<list of user-defined data to corresponding data>"]
+  }
+}

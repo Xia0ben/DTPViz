@@ -1,0 +1,13 @@
+{
+  "id": "<hash of vote>",
+  "version": "<vote model version>",
+  "voterPubkey": "<public key of the voting node>",
+  "vote": {
+    "currentBlock": "<block id the node is voting for>",
+    "previousBlock": "<block id of the previous node (from voting node point of view)>",
+    "isValid": "<actual vote (true|false)>",
+    "voteInvalidReason": ["<list of reasons of tuple {reason id, reason message}>"],
+    "timestamp": "<timestamp of vote creation>"
+  },
+  "signature": "<signature of the vote>"
+}

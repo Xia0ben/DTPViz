@@ -1,0 +1,23 @@
+{
+  "id": "<hash of transaction>",
+  "version": "<transaction model version>",
+  "transaction": {
+    "timestamp": "<transaction creation timestamp>",
+    "operation": "<transaction operation (CREATE|UPDATE|TRANSFER|DELETE)>",
+    "previousTid": "<id of the previous transaction>",
+    "cOwner": "<public key of the next owner>",
+    "fOwner": "<signature to prove being valid owner>",
+    "payload": {
+      "dataAsset": ["<transaction asset data>"],
+      "dataOther": ["<user defined data directly related to the asset (e.g. metadata)>"],
+      "properties": {
+        "updateable":   "<true|false>",
+        "transferable": "<true|false>"
+      }
+    },
+    "dle": ["<list of dle related to the transacton on storage layer>"],
+    "dataComment": "<user defined notes or comments related to the transaction>",
+  },
+  "signature": "<signature of the transaction>"
+}
+

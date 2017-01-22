@@ -1,0 +1,20 @@
+{
+  "id": "<hash of block>",
+  "version": "<block model version>",
+  "block": {
+    "timestamp": "<block creation timestamp>",
+    "transactions": ["<list of transactions>"],
+    "creatorPubkey": "<public key of the node that created the block>",
+    "voters": ["<list of node ids (pubkeys) that shall participate at block voting>"]
+  },
+  "status" : {
+    "timestamp": "<block status update timestamp>",
+    "status": "<block validity status (UNDECIDED|DECIDED_VALID|DECIDED_INVALID)>",
+    "previousBlock": "<previous block as indicated by the majority of votes>",
+    "nodePubkey": "<public key of the node providing status information>",
+    "signature": "<signature of block with votes/status>"
+  },
+  "dataComment": "<user defined notes or comments related to the block>",
+  "votes": ["<list of votes deciding block validity status>"],
+  "signature": "<signature of the block without votes/status>"
+}
