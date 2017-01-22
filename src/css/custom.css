@@ -1,9 +1,3 @@
-/* Navbar styles
--------------------------------------------------- */
-.custom-file-control:lang(en)::after {
-  content: "";
-}
-
 /* Control div and main section styles
 -------------------------------------------------- */
 #wrapper {
