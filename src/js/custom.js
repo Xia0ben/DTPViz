@@ -20,5 +20,7 @@ $("#timePeriodSlider").change(function() {
   $('#rightTimePeriod').text(maxTime.getFullYear() + '-' + maxTime.getMonth() + '-' + maxTime.getDate());
 });
 
-// Popovers initialization
-$('#popoverData').popover();
+// Popovers initialization whenever we load elements
+$(document).change(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});

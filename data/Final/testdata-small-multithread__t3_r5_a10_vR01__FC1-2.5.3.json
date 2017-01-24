@@ -1,0 +1,568 @@
+{
+  "blockchain" : [ {
+    "id" : "000",
+    "version" : 1,
+    "block" : {
+      "timestamp" : 1485116856,
+      "transactions" : null,
+      "creatorPubKey" : null,
+      "voters" : null
+    },
+    "status" : {
+      "timestamp" : -1,
+      "status" : "GENESIS",
+      "previousBlock" : null,
+      "nodePubKey" : null,
+      "signature" : null
+    },
+    "votes" : null,
+    "signature" : null,
+    "dataComment" : null
+  }, {
+    "id" : "b6ed573a2521953799f2562707407e5471672ddd54f96288293bda42dfbc09ce",
+    "version" : 1,
+    "block" : {
+      "timestamp" : 1485116856,
+      "transactions" : [ {
+        "id" : "929743f9a139a0e852de92cdea516bf866da0a5f036d8a904fb404672fa82323",
+        "version" : 1,
+        "transaction" : {
+          "timestamp" : 1485116856,
+          "operation" : "CREATE",
+          "previousTid" : null,
+          "cOwner" : "ef8002663d49cdca753fea9c56d60399b265bef1340d5b73e5a6df05ecf32260",
+          "fOwner" : null,
+          "payload" : {
+            "dataAsset" : [ "This is some data asset - agent:1 - timestamp:1485116856 - rnd:-1440334085" ],
+            "dataOther" : [ "This is some data describing (theoretically) the data asset" ],
+            "properties" : {
+              "updateable" : true,
+              "transferrable" : true
+            }
+          },
+          "dle" : [ {
+            "id" : "6f438159ae966f5f2018dda0f0703042ab4203f263465db4ccbbe24d9ce5e276",
+            "version" : 1,
+            "dle" : null
+          } ],
+          "dataComment" : "Transaction - Created by agent-1 (timestamp: 1485116856)"
+        },
+        "signature" : "8dced0167049bf94a600a74f62eb86c847816c187b3e15bbd021daf051aed9df053493373ea14c71a23c6df967bceef984034d77cd9e7bd762c7f96a331e0d0f"
+      } ],
+      "creatorPubKey" : "cddd6d8b6418407a2a00e407e140ff6e6f1dae84ef6fc0e2b42fec3b93d66e04",
+      "voters" : [ "ef8002663d49cdca753fea9c56d60399b265bef1340d5b73e5a6df05ecf32260" ]
+    },
+    "status" : {
+      "timestamp" : 1485116856,
+      "status" : "DECIDED_VALID",
+      "previousBlock" : "000",
+      "nodePubKey" : "ef8002663d49cdca753fea9c56d60399b265bef1340d5b73e5a6df05ecf32260",
+      "signature" : "62a31dfc3e3bbfe7c63efe9c22bc4245da2863c950ce1cf46f6ee03799423cb5c249682c0a5fe7425dd201e8e958fb92355303c70a99d13d43340c84888f560a"
+    },
+    "votes" : [ {
+      "id" : "8522d1b924edc637ad2735f5423c3d650291a7cc80f6140586ad99caebba96da",
+      "version" : 1,
+      "voterPubkey" : "ef8002663d49cdca753fea9c56d60399b265bef1340d5b73e5a6df05ecf32260",
+      "vote" : {
+        "currentBlock" : "b6ed573a2521953799f2562707407e5471672ddd54f96288293bda42dfbc09ce",
+        "previousBlock" : "000",
+        "valid" : true,
+        "voteInvalidReason" : null,
+        "timestamp" : 1485116856
+      },
+      "signature" : "9ace45e21ff0de429ca46a04f9a10868d030784afa365ad47a64a8ec3ee5474a1792ab0d5cfac95cdeccefd89a06ee58f8bf485f1aafca9e63209a50dea1bc0f"
+    } ],
+    "signature" : "26cfdff6ab27ca4fcdd43fc0897bc006b250cfc6b15855a8ba6afa764c0920b42417b6a172353521927865c968ec7d4f2bf44823ab61585cfab65f2b4ee5fd0f",
+    "dataComment" : "Block - Created by agent-6 (timestamp: 1485116856 - random: 0.8032060125421031)"
+  }, {
+    "id" : "a3cf052335ccd35ebbcf3737884e2804bf245ab190cb534e14a5f1121ef2946c",
+    "version" : 1,
+    "block" : {
+      "timestamp" : 1485116856,
+      "transactions" : [ {
+        "id" : "5a1529dc2734952c67810f8b65b0f864029091c90a92fc8f67e76216c375181b",
+        "version" : 1,
+        "transaction" : {
+          "timestamp" : 1485116856,
+          "operation" : "CREATE",
+          "previousTid" : null,
+          "cOwner" : "9f68038a457a53c7a04276a1718c37e10bb09a99626d5a959729970f4e48c859",
+          "fOwner" : null,
+          "payload" : {
+            "dataAsset" : [ "This is some data asset - agent:5 - timestamp:1485116856 - rnd:1510398296" ],
+            "dataOther" : [ "This is some data describing (theoretically) the data asset" ],
+            "properties" : {
+              "updateable" : true,
+              "transferrable" : true
+            }
+          },
+          "dle" : null,
+          "dataComment" : "Transaction - Created by agent-5 (timestamp: 1485116856)"
+        },
+        "signature" : "3e7c77f55192e7eaab5d4b9a763e23cd4fee2e01c4b65cff9db1137d8b183e58b275437c0ff149fc08d3849ad5a771168b965d46262de1144b4823d88f5a5c03"
+      } ],
+      "creatorPubKey" : "ef8002663d49cdca753fea9c56d60399b265bef1340d5b73e5a6df05ecf32260",
+      "voters" : [ "a0b67bc23de380c5f0468f43df41f5d77f50891fa70eb6a2e558a26c9bee1265" ]
+    },
+    "status" : {
+      "timestamp" : 1485116856,
+      "status" : "DECIDED_VALID",
+      "previousBlock" : "000",
+      "nodePubKey" : "a0b67bc23de380c5f0468f43df41f5d77f50891fa70eb6a2e558a26c9bee1265",
+      "signature" : "a915a10f5dca293cf449de530db309f6bd85b8a7a5f85f331d56a16b5c5e6f526e8091535e429b9158bdfee8e904035536298d23bfd1af7d8a9a0c10181d6701"
+    },
+    "votes" : [ {
+      "id" : "7c1de61cb127284be3aeb8fbb7690b5d6a120fad54415c7cc6b7395924232a4f",
+      "version" : 1,
+      "voterPubkey" : "a0b67bc23de380c5f0468f43df41f5d77f50891fa70eb6a2e558a26c9bee1265",
+      "vote" : {
+        "currentBlock" : "a3cf052335ccd35ebbcf3737884e2804bf245ab190cb534e14a5f1121ef2946c",
+        "previousBlock" : "000",
+        "valid" : true,
+        "voteInvalidReason" : null,
+        "timestamp" : 1485116856
+      },
+      "signature" : "4e2b45d68b5df8eaa19fa2637ac0c05f1e7f30ff2166bdb1ca94b33e6c734f4b3eec1784d4989afeebfef6dd45bffb92a8daa5565a40ec64b29e6c73db951f0f"
+    } ],
+    "signature" : "15353005dbf0918fcb27d8d4d8fe69d3c13a2b55beee5d3f7f0813f99e667f4ebc1a5797555556b2b2d2665f7438ee07a659d88201388a917862d8006a17a90e",
+    "dataComment" : "Block - Created by agent-1 (timestamp: 1485116856 - random: 0.2369882872765784)"
+  }, {
+    "id" : "42f3d41690d4b9bd487fe963d063288fd0908d08acf270d4fa5bfa7ed14ea869",
+    "version" : 1,
+    "block" : {
+      "timestamp" : 1485116856,
+      "transactions" : [ {
+        "id" : "13c07aeaebbbdb7830b5ab6e65e098cf395cb86ead1d477666b09bd7e5c81b56",
+        "version" : 1,
+        "transaction" : {
+          "timestamp" : 1485116856,
+          "operation" : "CREATE",
+          "previousTid" : null,
+          "cOwner" : "cddd6d8b6418407a2a00e407e140ff6e6f1dae84ef6fc0e2b42fec3b93d66e04",
+          "fOwner" : null,
+          "payload" : {
+            "dataAsset" : [ "This is some data asset - agent:6 - timestamp:1485116856 - rnd:1841602319" ],
+            "dataOther" : [ "This is some data describing (theoretically) the data asset" ],
+            "properties" : {
+              "updateable" : true,
+              "transferrable" : true
+            }
+          },
+          "dle" : [ {
+            "id" : "8f9c7e7c830576caa78873e208519ca0241413e66cba90d777509a315589804f",
+            "version" : 1,
+            "dle" : null
+          } ],
+          "dataComment" : "Transaction - Created by agent-6 (timestamp: 1485116856)"
+        },
+        "signature" : "c6924711ceb85b1c825723b5ea29a074df1ba62e167ebb41a9896787ef794ffc657940d4b00a062fb253d676a078d4cc35772dc1c6038b4042ae5d6bb2678604"
+      }, {
+        "id" : "b694c389f9586b3a1e8be51d74afe8e0cddafa2a8f44289298c6cce5f7f11709",
+        "version" : 1,
+        "transaction" : {
+          "timestamp" : 1485116856,
+          "operation" : "UPDATE",
+          "previousTid" : "13c07aeaebbbdb7830b5ab6e65e098cf395cb86ead1d477666b09bd7e5c81b56",
+          "cOwner" : "cddd6d8b6418407a2a00e407e140ff6e6f1dae84ef6fc0e2b42fec3b93d66e04",
+          "fOwner" : "c81c3e3471e73d60407618a693d6444d3fafd6a1b9e076ea124b4997ba51553294ce36b3b37c3e4ac88b87f3a146a01f3c7c23bfcb49fcfd71e797fd9f384f02",
+          "payload" : {
+            "dataAsset" : [ "This is some data asset - agent:6 - timestamp:1485116856 - rnd:1841602319" ],
+            "dataOther" : [ "This is some data describing (theoretically) the data asset" ],
+            "properties" : {
+              "updateable" : true,
+              "transferrable" : true
+            }
+          },
+          "dle" : [ {
+            "id" : "8f9c7e7c830576caa78873e208519ca0241413e66cba90d777509a315589804f",
+            "version" : 1,
+            "dle" : null
+          } ],
+          "dataComment" : "LastOperation:UPDATE - round: 2 - agent-6 - timestamp:1485116856 - random:0.6947676333231723"
+        },
+        "signature" : "605f35b36994ba7bd78dee06320b1436065f27f79ae355549cd29021389fa9e56ff04846bf5ba1e2133bce9da6c065764d49b486ece8de96ad31a99b1dc2b705"
+      } ],
+      "creatorPubKey" : "ef8002663d49cdca753fea9c56d60399b265bef1340d5b73e5a6df05ecf32260",
+      "voters" : [ "704869cea19e65993effe9e93580fe0627b0281bb1a39c8855c48869358fdf8c" ]
+    },
+    "status" : {
+      "timestamp" : 1485116856,
+      "status" : "DECIDED_VALID",
+      "previousBlock" : "000",
+      "nodePubKey" : "704869cea19e65993effe9e93580fe0627b0281bb1a39c8855c48869358fdf8c",
+      "signature" : "b9a6f0e77be855e15408ed6d28d93492c72c8308cbbc80f82bba6bca48917ab85c05114bd16ff132603f3e5e9502b496d1f572d6ec504cbbd8e4df8ef9ef430d"
+    },
+    "votes" : [ {
+      "id" : "daeda3b8a47c0bbaaa2deff1aaf796ec8d1cd21911483111363947b4cef6013b",
+      "version" : 1,
+      "voterPubkey" : "704869cea19e65993effe9e93580fe0627b0281bb1a39c8855c48869358fdf8c",
+      "vote" : {
+        "currentBlock" : "42f3d41690d4b9bd487fe963d063288fd0908d08acf270d4fa5bfa7ed14ea869",
+        "previousBlock" : "000",
+        "valid" : true,
+        "voteInvalidReason" : null,
+        "timestamp" : 1485116856
+      },
+      "signature" : "d7bff392b6402bb798229d27f933b5614cc91dd8a0181311d6da0d53ac24893dce126ca57cae1905b3e16aa7b9d5c2738193a7c3078aa9ef1effd0d5e5c10206"
+    } ],
+    "signature" : "ab87b02d3012b01220e7a77cc3d330ff333363defb5f3bdc5a8002385bdf7472747edb503fa36795e6a038f0ec64ed93c303d29cef0e8b1b9bd988dd770b5a0b",
+    "dataComment" : "Block - Created by agent-1 (timestamp: 1485116856 - random: 0.3931270535232583)"
+  }, {
+    "id" : "d97ab4901f89134f64e63ca84554bc12aa9377cf20e63b06a234fc64b8609655",
+    "version" : 1,
+    "block" : {
+      "timestamp" : 1485116856,
+      "transactions" : [ {
+        "id" : "aeb3a5743e1f46995dbb1ea4310b1dc6f00def34f019c5c13437b350c9cdae7d",
+        "version" : 1,
+        "transaction" : {
+          "timestamp" : 1485116856,
+          "operation" : "TRANSFER",
+          "previousTid" : "5a1529dc2734952c67810f8b65b0f864029091c90a92fc8f67e76216c375181b",
+          "cOwner" : "1085a88cceb05e5321b88a24795d56b789b347a56029f9e7e4272f2179ee675c",
+          "fOwner" : "52af85c19f86d041770aee5e8b65918b476b5c06d1a08176f27b65a879cac577fb8379efd59e0cb70ab3c9781cc5297da8c46fc8f810db6368d2d4361d6b7804",
+          "payload" : {
+            "dataAsset" : [ "This is some data asset - agent:5 - timestamp:1485116856 - rnd:1510398296" ],
+            "dataOther" : [ "This is some data describing (theoretically) the data asset" ],
+            "properties" : {
+              "updateable" : true,
+              "transferrable" : true
+            }
+          },
+          "dle" : null,
+          "dataComment" : "LastOperation:TRANSFER - round: 1 - agent-5 - timestamp:1485116856 - random:0.595176484950104"
+        },
+        "signature" : "3983ce9915d06c6e2fc037cbf7c3b9510d7a8c481ee5a2f3287fe078dafd9bea6b444c0c2cc47fdca2f9d6ce534005dbcf592c07f81a10b24a1e1e1cb92e0c0c"
+      } ],
+      "creatorPubKey" : "cddd6d8b6418407a2a00e407e140ff6e6f1dae84ef6fc0e2b42fec3b93d66e04",
+      "voters" : [ "e132c205e7c0db0f8d722155673ebd85539974e256051c5a2afe782bd36343f3" ]
+    },
+    "status" : {
+      "timestamp" : 1485116856,
+      "status" : "DECIDED_VALID",
+      "previousBlock" : "42f3d41690d4b9bd487fe963d063288fd0908d08acf270d4fa5bfa7ed14ea869",
+      "nodePubKey" : "e132c205e7c0db0f8d722155673ebd85539974e256051c5a2afe782bd36343f3",
+      "signature" : "cd13f235c47065bbf79e874315e80cab6912d5705383b0562d862f72055c1e140df13a759c24075a7731015720a985c5e8fab86f1d1a15134e379887d1238401"
+    },
+    "votes" : [ {
+      "id" : "1472b2e4938438c12f9706fd7915e03beb154c033ef3c6c5cf89ace3072f030a",
+      "version" : 1,
+      "voterPubkey" : "e132c205e7c0db0f8d722155673ebd85539974e256051c5a2afe782bd36343f3",
+      "vote" : {
+        "currentBlock" : "d97ab4901f89134f64e63ca84554bc12aa9377cf20e63b06a234fc64b8609655",
+        "previousBlock" : "42f3d41690d4b9bd487fe963d063288fd0908d08acf270d4fa5bfa7ed14ea869",
+        "valid" : true,
+        "voteInvalidReason" : null,
+        "timestamp" : 1485116856
+      },
+      "signature" : "aeda31a84fe33b24fc1d7c9c8bac0e337f97054c45df7f2326d80a8459373f6474fed76bce222f4482a040611c5dc24ea6017db55ae76af7d89a7ee71fd4c903"
+    } ],
+    "signature" : "82b6be3517ca5d934e5108e25f628af34deb98e2ae805627e0813cc5e390436890568692b89171558b17dc14d8ecaeedeea55015710c47928fa179bf38760809",
+    "dataComment" : "Block - Created by agent-6 (timestamp: 1485116856 - random: 0.886473748263621)"
+  }, {
+    "id" : "8834855a909a651264bc34d806709195bde255afba2ee15cc4197887b072c186",
+    "version" : 1,
+    "block" : {
+      "timestamp" : 1485116856,
+      "transactions" : [ {
+        "id" : "0232c946d6c9b76f284700df22001dd98707d0a1766f28492708aca4d7285ceb",
+        "version" : 1,
+        "transaction" : {
+          "timestamp" : 1485116856,
+          "operation" : "UPDATE",
+          "previousTid" : "b694c389f9586b3a1e8be51d74afe8e0cddafa2a8f44289298c6cce5f7f11709",
+          "cOwner" : "cddd6d8b6418407a2a00e407e140ff6e6f1dae84ef6fc0e2b42fec3b93d66e04",
+          "fOwner" : "03915ed81f3f465aec0e4dadf8581f36ae7939fdd85bcce48346a5190c3e3c6b5f39ff217091856399d0d9f5633788a37d41b1cb0169578c5ed56817aaac9d0e",
+          "payload" : {
+            "dataAsset" : [ "This is some data asset - agent:6 - timestamp:1485116856 - rnd:1841602319" ],
+            "dataOther" : [ "This is some data describing (theoretically) the data asset" ],
+            "properties" : {
+              "updateable" : true,
+              "transferrable" : true
+            }
+          },
+          "dle" : [ {
+            "id" : "8f9c7e7c830576caa78873e208519ca0241413e66cba90d777509a315589804f",
+            "version" : 1,
+            "dle" : null
+          } ],
+          "dataComment" : "LastOperation:UPDATE - round: 3 - agent-6 - timestamp:1485116856 - random:0.4385608474320436"
+        },
+        "signature" : "aacef047984e56584b78205f349a837af86651e19ee881cabc31504b85157df87eb36f5b81921252fb9bd3f12f7f5b948aacd6c4d3d3c6c06e41c914b7438408"
+      } ],
+      "creatorPubKey" : "ef8002663d49cdca753fea9c56d60399b265bef1340d5b73e5a6df05ecf32260",
+      "voters" : [ "0df7ec104281145f4ad884ae0bf8eebb616cc698999936d5036e7d88716d2b14" ]
+    },
+    "status" : {
+      "timestamp" : 1485116856,
+      "status" : "DECIDED_VALID",
+      "previousBlock" : "42f3d41690d4b9bd487fe963d063288fd0908d08acf270d4fa5bfa7ed14ea869",
+      "nodePubKey" : "0df7ec104281145f4ad884ae0bf8eebb616cc698999936d5036e7d88716d2b14",
+      "signature" : "c20251a002111a1a5923e63fa7b05424ad52f8e329a03ef0ab1728a90829d35d3740b0d2b75507a52762a11830f63721affda3b8707011794f945e48f64dee05"
+    },
+    "votes" : [ {
+      "id" : "c75c27a55cfb6d293508c448ddd2329844805798636a267d9325cca4cb9c4e32",
+      "version" : 1,
+      "voterPubkey" : "0df7ec104281145f4ad884ae0bf8eebb616cc698999936d5036e7d88716d2b14",
+      "vote" : {
+        "currentBlock" : "8834855a909a651264bc34d806709195bde255afba2ee15cc4197887b072c186",
+        "previousBlock" : "42f3d41690d4b9bd487fe963d063288fd0908d08acf270d4fa5bfa7ed14ea869",
+        "valid" : true,
+        "voteInvalidReason" : null,
+        "timestamp" : 1485116856
+      },
+      "signature" : "ea4ef717184f4e6a46120a4b470b874042e0f408da92e985b3c2848de75383a8db26934b9b0327046be03b293b596b1dc2b312cdd344d9eec18b74409878cb07"
+    } ],
+    "signature" : "c10995f73fba3cbf0c460edbadff6c4cdf38be3ecb81e2bfb341bb540a206dcdd2c879e096645f780801a71c302300b73e0f5d38a34a5e83bf788fe57da30e03",
+    "dataComment" : "Block - Created by agent-1 (timestamp: 1485116856 - random: 0.2244938329793501)"
+  }, {
+    "id" : "6a5d1bdbc1aed34175d62c74641136b813afe976925356a747f95130e30ad148",
+    "version" : 1,
+    "block" : {
+      "timestamp" : 1485116856,
+      "transactions" : [ {
+        "id" : "98aa272ff761a38f398bda21f6a656f3378c81d6dd33d3165380d7ef645b001b",
+        "version" : 1,
+        "transaction" : {
+          "timestamp" : 1485116856,
+          "operation" : "CREATE",
+          "previousTid" : null,
+          "cOwner" : "1085a88cceb05e5321b88a24795d56b789b347a56029f9e7e4272f2179ee675c",
+          "fOwner" : null,
+          "payload" : {
+            "dataAsset" : [ "This is some data asset - agent:2 - timestamp:1485116856 - rnd:2063355563" ],
+            "dataOther" : [ "This is some data describing (theoretically) the data asset" ],
+            "properties" : {
+              "updateable" : true,
+              "transferrable" : true
+            }
+          },
+          "dle" : [ {
+            "id" : "2ef641deae9e7313d9fc85b0cd4caaa9f0f8d4e5aad63078b9ccd505c3d1920a",
+            "version" : 1,
+            "dle" : null
+          } ],
+          "dataComment" : "Transaction - Created by agent-2 (timestamp: 1485116856)"
+        },
+        "signature" : "6bef89bba27e647eb9d2a0db486414ef1e0f1f1896ac12d479538ab0d2d18acc5135e11940e3150ccb718b070a52fbbaadf27e56d18e5526494be0be989fd501"
+      }, {
+        "id" : "3d26d1310a9fd3db930285376e43cc26f7886eb5ff8f6df49b229db82be94f52",
+        "version" : 1,
+        "transaction" : {
+          "timestamp" : 1485116856,
+          "operation" : "UPDATE",
+          "previousTid" : "98aa272ff761a38f398bda21f6a656f3378c81d6dd33d3165380d7ef645b001b",
+          "cOwner" : "1085a88cceb05e5321b88a24795d56b789b347a56029f9e7e4272f2179ee675c",
+          "fOwner" : "8c45f65489648d7d0d6390c9f97c5cc5f5a1419b1bd9c4223ddf9f71ac332c99a33c1e5fdd2e2569c5f234a80b0dec293b385c0611f3190549b9a21355a54e00",
+          "payload" : {
+            "dataAsset" : [ "This is some data asset - agent:2 - timestamp:1485116856 - rnd:2063355563" ],
+            "dataOther" : [ "This is some data describing (theoretically) the data asset" ],
+            "properties" : {
+              "updateable" : true,
+              "transferrable" : true
+            }
+          },
+          "dle" : [ {
+            "id" : "2ef641deae9e7313d9fc85b0cd4caaa9f0f8d4e5aad63078b9ccd505c3d1920a",
+            "version" : 1,
+            "dle" : null
+          } ],
+          "dataComment" : "LastOperation:UPDATE - round: 2 - agent-2 - timestamp:1485116856 - random:0.8733299550795823"
+        },
+        "signature" : "f9ac1614363dc48b271e67a600e71c078ab570238efdbd73b581bd0cf9daea421b034a9c83f802c6f45bdb1ceb37d85edc2acc90c6cb0be47f12dfb099b60c01"
+      } ],
+      "creatorPubKey" : "704869cea19e65993effe9e93580fe0627b0281bb1a39c8855c48869358fdf8c",
+      "voters" : [ "9f68038a457a53c7a04276a1718c37e10bb09a99626d5a959729970f4e48c859" ]
+    },
+    "status" : {
+      "timestamp" : 1485116856,
+      "status" : "DECIDED_VALID",
+      "previousBlock" : "42f3d41690d4b9bd487fe963d063288fd0908d08acf270d4fa5bfa7ed14ea869",
+      "nodePubKey" : "9f68038a457a53c7a04276a1718c37e10bb09a99626d5a959729970f4e48c859",
+      "signature" : "54601b150ee9fd70235f53533d5ed9b15b2ffecdd571fce6ff8c3d482311590db7990a91cd845f423ef5f84544b9b2308ceddd6a053802bf389990ea2508d703"
+    },
+    "votes" : [ {
+      "id" : "7b685569a3b24d256cc5e84965c417e5deb6c69eb1d74b98537a595f70b97c23",
+      "version" : 1,
+      "voterPubkey" : "9f68038a457a53c7a04276a1718c37e10bb09a99626d5a959729970f4e48c859",
+      "vote" : {
+        "currentBlock" : "6a5d1bdbc1aed34175d62c74641136b813afe976925356a747f95130e30ad148",
+        "previousBlock" : "42f3d41690d4b9bd487fe963d063288fd0908d08acf270d4fa5bfa7ed14ea869",
+        "valid" : true,
+        "voteInvalidReason" : null,
+        "timestamp" : 1485116856
+      },
+      "signature" : "95d5509cefe6a2703ee37a4a93cc71ed654f8743ec6639ecfd1b8ed15bd38083747244f5919b70f44ac0d2d8819289fc44eff571d6126183e5f0269beb154a00"
+    } ],
+    "signature" : "b0dc8bdf28f92f606cebfbe184271e8b30659881fb5a135909721761975fbe4356b5e96848210b4b706617292020397ff00acb846962a78b76c2d37ccaf4a90f",
+    "dataComment" : "Block - Created by agent-7 (timestamp: 1485116856 - random: 0.018782580758790912)"
+  }, {
+    "id" : "b6fc12c43afba79b24ea8d84fc2b1faa801d7c9e156b14261ef93b658d061657",
+    "version" : 1,
+    "block" : {
+      "timestamp" : 1485116856,
+      "transactions" : [ {
+        "id" : "36c6345994120484799b9a9071008751cf3e652b8d335389afa0c9f9142182e8",
+        "version" : 1,
+        "transaction" : {
+          "timestamp" : 1485116856,
+          "operation" : "UPDATE",
+          "previousTid" : "3d26d1310a9fd3db930285376e43cc26f7886eb5ff8f6df49b229db82be94f52",
+          "cOwner" : "1085a88cceb05e5321b88a24795d56b789b347a56029f9e7e4272f2179ee675c",
+          "fOwner" : "329824e3fce6eee060928b2e7d79cd6bfb2944cd2868c2d88eb03e29620587ff32108d491dafe24b671f15438e08803cf50cc4faa93a6eb99a48ffb1e2553805",
+          "payload" : {
+            "dataAsset" : [ "This is some data asset - agent:2 - timestamp:1485116856 - rnd:2063355563" ],
+            "dataOther" : [ "This is some data describing (theoretically) the data asset" ],
+            "properties" : {
+              "updateable" : true,
+              "transferrable" : true
+            }
+          },
+          "dle" : [ {
+            "id" : "2ef641deae9e7313d9fc85b0cd4caaa9f0f8d4e5aad63078b9ccd505c3d1920a",
+            "version" : 1,
+            "dle" : null
+          } ],
+          "dataComment" : "LastOperation:UPDATE - round: 3 - agent-2 - timestamp:1485116856 - random:0.40907220161005065"
+        },
+        "signature" : "3d463e790ae43c015be66fc502626df4f3fc3ea3034b3e35c5620b6695adc6fb6dea3d8a9de060ef146551aabac1678e3cac601f647d6b3be853e20c8561a207"
+      } ],
+      "creatorPubKey" : "9f68038a457a53c7a04276a1718c37e10bb09a99626d5a959729970f4e48c859",
+      "voters" : [ "1085a88cceb05e5321b88a24795d56b789b347a56029f9e7e4272f2179ee675c" ]
+    },
+    "status" : {
+      "timestamp" : 1485116856,
+      "status" : "DECIDED_VALID",
+      "previousBlock" : "6a5d1bdbc1aed34175d62c74641136b813afe976925356a747f95130e30ad148",
+      "nodePubKey" : "1085a88cceb05e5321b88a24795d56b789b347a56029f9e7e4272f2179ee675c",
+      "signature" : "0f982342de525e2c662de139ac3fdabc91e712e7716ba6ea450b81496daac02ab886f1e91ef9558e51fdc831d0607d18edf5c0f14e3c77f32da2521a5f235800"
+    },
+    "votes" : [ {
+      "id" : "923dfc9effb5171b320b3254b782134c07b1b47bb53995eecef7c1d4199d47a8",
+      "version" : 1,
+      "voterPubkey" : "1085a88cceb05e5321b88a24795d56b789b347a56029f9e7e4272f2179ee675c",
+      "vote" : {
+        "currentBlock" : "b6fc12c43afba79b24ea8d84fc2b1faa801d7c9e156b14261ef93b658d061657",
+        "previousBlock" : "6a5d1bdbc1aed34175d62c74641136b813afe976925356a747f95130e30ad148",
+        "valid" : true,
+        "voteInvalidReason" : null,
+        "timestamp" : 1485116856
+      },
+      "signature" : "615433311ccf3fd4d744d4edc68093e9e2ce67000e90633db73342016ba29041edc96ca78f71b55673a33a8772e2f701bda15638d6985136448ec628d8df5400"
+    } ],
+    "signature" : "e054d4865467fcbfe58899232ec43c0c22cec004a2b91674b8ceb95cf4f0ff0dfc1081def7881ef8d715d8685f5c578dc3c6176bb0d64bc71eaf42ae9c99990b",
+    "dataComment" : "Block - Created by agent-5 (timestamp: 1485116856 - random: 0.8565498525598246)"
+  }, {
+    "id" : "7d46c2d13e0cce59b7431bc387d5d2ea2b0f78935ce4c9952bcc63cf70fac403",
+    "version" : 1,
+    "block" : {
+      "timestamp" : 1485116856,
+      "transactions" : [ {
+        "id" : "d5f7e3d4d507c99efb3a97c704e8beead93cccb6d19fbbccb014f5b5737870ce",
+        "version" : 1,
+        "transaction" : {
+          "timestamp" : 1485116856,
+          "operation" : "CREATE",
+          "previousTid" : null,
+          "cOwner" : "0df7ec104281145f4ad884ae0bf8eebb616cc698999936d5036e7d88716d2b14",
+          "fOwner" : null,
+          "payload" : {
+            "dataAsset" : [ "This is some data asset - agent:0 - timestamp:1485116856 - rnd:-554493445" ],
+            "dataOther" : [ "This is some data describing (theoretically) the data asset" ],
+            "properties" : {
+              "updateable" : true,
+              "transferrable" : true
+            }
+          },
+          "dle" : null,
+          "dataComment" : "Transaction - Created by agent-0 (timestamp: 1485116856)"
+        },
+        "signature" : "880e9a3b274aae31f5859004fc6a48d1a8a89ba17f47f76de57acbc5dc225fdeeabc6c1663df70b027eb0173b443ee540c2dd44a9fda4bccc94133c651e01508"
+      }, {
+        "id" : "10c44018d3c39f8e7e4cfcbc650eaaa8947dbecab5ea0253dd388bd766d99f80",
+        "version" : 1,
+        "transaction" : {
+          "timestamp" : 1485116856,
+          "operation" : "TRANSFER",
+          "previousTid" : "36c6345994120484799b9a9071008751cf3e652b8d335389afa0c9f9142182e8",
+          "cOwner" : "103c549711ed22cb97e5ae4b7ca17fe4991fd83ab880e46a7791605375833eda",
+          "fOwner" : "fe726d819178e819bf1a0326b8a8d1cfa2ef42d474ea2e5fc746467bfeb45cc7ed34d9c6108131134b2856290aedcdd739bec6fc42ac02418105b9907ce2f00e",
+          "payload" : {
+            "dataAsset" : [ "This is some data asset - agent:2 - timestamp:1485116856 - rnd:2063355563" ],
+            "dataOther" : [ "This is some data describing (theoretically) the data asset" ],
+            "properties" : {
+              "updateable" : true,
+              "transferrable" : true
+            }
+          },
+          "dle" : [ {
+            "id" : "2ef641deae9e7313d9fc85b0cd4caaa9f0f8d4e5aad63078b9ccd505c3d1920a",
+            "version" : 1,
+            "dle" : null
+          } ],
+          "dataComment" : "LastOperation:TRANSFER - round: 4 - agent-2 - timestamp:1485116856 - random:0.8080403909106012"
+        },
+        "signature" : "b5250d9336439804985b5ed88325b6a74e71bc45ae5a1bdc8c84994ee3e88ade5c9db985e8def240180221bafab9cbc4c80d5b301da336303f436ac7b0db2406"
+      } ],
+      "creatorPubKey" : "ef8002663d49cdca753fea9c56d60399b265bef1340d5b73e5a6df05ecf32260",
+      "voters" : [ "0df7ec104281145f4ad884ae0bf8eebb616cc698999936d5036e7d88716d2b14" ]
+    },
+    "status" : {
+      "timestamp" : 1485116856,
+      "status" : "DECIDED_VALID",
+      "previousBlock" : "b6fc12c43afba79b24ea8d84fc2b1faa801d7c9e156b14261ef93b658d061657",
+      "nodePubKey" : "0df7ec104281145f4ad884ae0bf8eebb616cc698999936d5036e7d88716d2b14",
+      "signature" : "3e2510a6cbfe2e9a1aeab0be0374a53a40bc6a308aa6c5dbb6e9bd48767b5e010f4a65463e76a203e2d250f86747b1bebd4cd9206e09023ff88b0f1da097eb0a"
+    },
+    "votes" : [ {
+      "id" : "c7a7c5f05385d3fee2fb5e59bfb8c648da6a031e1a4f4dab83504c718f7495ab",
+      "version" : 1,
+      "voterPubkey" : "0df7ec104281145f4ad884ae0bf8eebb616cc698999936d5036e7d88716d2b14",
+      "vote" : {
+        "currentBlock" : "7d46c2d13e0cce59b7431bc387d5d2ea2b0f78935ce4c9952bcc63cf70fac403",
+        "previousBlock" : "b6fc12c43afba79b24ea8d84fc2b1faa801d7c9e156b14261ef93b658d061657",
+        "valid" : true,
+        "voteInvalidReason" : null,
+        "timestamp" : 1485116856
+      },
+      "signature" : "7345a727bf531a5c26070444739f3fca78f92ba949f08af906319b1571592c051b50332dba26fd390d68180e1596e7dc66b573c1e672aae181823e102f7c4b0f"
+    } ],
+    "signature" : "d4245c10977a590676625cdb9fe30168208782eb10cbfc6cdbd3bb945fb3dd1509d7c5b28747ecdd5269c255b1503845fec78426cd3c5ca01f01069f51fbaf0f",
+    "dataComment" : "Block - Created by agent-1 (timestamp: 1485116856 - random: 0.2847775903281988)"
+  } ],
+  "datalake" : [ {
+    "id" : "6f438159ae966f5f2018dda0f0703042ab4203f263465db4ccbbe24d9ce5e276",
+    "version" : 1,
+    "dle" : {
+      "transaction" : "929743f9a139a0e852de92cdea516bf866da0a5f036d8a904fb404672fa82323",
+      "layer" : "STORAGE",
+      "type" : "MESSAGE_EXCHANGE",
+      "dataDle" : [ "message request data", "message response data with DO", "message ack data" ],
+      "dataMeta" : [ "consumer:request", "provider:response-DO", "consumer:ack" ],
+      "dataOther" : [ "DLE - Created by agent-1 (timestamp: 1485116856 - random: 0.6966378957294893)" ]
+    }
+  }, {
+    "id" : "2ef641deae9e7313d9fc85b0cd4caaa9f0f8d4e5aad63078b9ccd505c3d1920a",
+    "version" : 1,
+    "dle" : {
+      "transaction" : "98aa272ff761a38f398bda21f6a656f3378c81d6dd33d3165380d7ef645b001b",
+      "layer" : "STORAGE",
+      "type" : "MESSAGE_EXCHANGE",
+      "dataDle" : [ "message request data", "message response data with DO", "message ack data" ],
+      "dataMeta" : [ "consumer:request", "provider:response-DO", "consumer:ack" ],
+      "dataOther" : [ "DLE - Created by agent-2 (timestamp: 1485116856 - random: 0.8713487489968004)" ]
+    }
+  }, {
+    "id" : "8f9c7e7c830576caa78873e208519ca0241413e66cba90d777509a315589804f",
+    "version" : 1,
+    "dle" : {
+      "transaction" : "13c07aeaebbbdb7830b5ab6e65e098cf395cb86ead1d477666b09bd7e5c81b56",
+      "layer" : "STORAGE",
+      "type" : "MESSAGE_EXCHANGE",
+      "dataDle" : [ "message request data", "message response data with DO", "message ack data" ],
+      "dataMeta" : [ "consumer:request", "provider:response-DO", "consumer:ack" ],
+      "dataOther" : [ "DLE - Created by agent-6 (timestamp: 1485116856 - random: 0.6058785610264579)" ]
+    }
+  } ],
+  "invalidblockdepot" : [ ]
+}

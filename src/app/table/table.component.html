@@ -1,0 +1,246 @@
+<div class ="row">
+  <div class ="col-12">
+    <!-- Tables -->
+    <div class="table-responsive ">
+
+      <!-- Mixt table -->
+      <table *ngIf="types?.length > 1" class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Timestamp</th>
+            <th>Status</th>
+            <th>CreatorPubKey</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let block of blocks; let i = index;"> <!-- add "| slice:1" to the let declaration if wanna remove the GENESIS block -->
+          <tr [attr.id]="'popoverData' + i"
+            class="table-success"
+            data-content="<div class='container-fluid'><div class='row'><div class='col-3'>ID</div><div class='col-9'>1a6473107181a647uU9h4731071</div></div></div>"
+            rel="popover"
+            data-placement="top"
+            data-original-title="Preview"
+            data-trigger="hover"
+            data-html="true"
+            data-toggle="modal"
+            [attr.data-target]="'#bd-example-modal-lg' + i">
+            <td>{{block?.id | slice:0:15}}...</td>
+            <td>{{block?.block?.timestamp * 1000| date: 'yyyy-MM-dd hh:mm:ss'}}</td>
+            <td>{{block?.status?.status}}</td>
+            <td>{{block?.block?.creatorPubKey | slice:0:15}}...</td>
+
+            <!-- Modal -->
+            <div [attr.id]="'bd-example-modal-lg' + i" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Detail View - BLOCK</h5><!-- BLOCK is to be changed depending on the type of node -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-3">
+                          ID
+                        </div>
+                        <div class="col-9">
+                          1a6473107181a647uU9h4731071
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </tr>
+
+          <tr *ngFor="let transaction of block?.block?.transactions;"
+            class="table-info">
+            <td>{{transaction?.id | slice:0:15}}...</td>
+            <td>{{transaction?.transaction?.timestamp * 1000| date: 'yyyy-MM-dd hh:mm:ss'}}</td>
+            <td>{{block?.status?.status}}</td>
+            <td>...</td>
+          </tr>
+
+          <tr *ngFor="let vote of block?.votes;"
+            class="table-warning">
+            <td>{{vote?.id | slice:0:15}}...</td>
+            <td>{{vote?.vote?.timestamp * 1000| date: 'yyyy-MM-dd hh:mm:ss'}}</td>
+            <td>{{block?.status?.status}}</td>
+            <td>...</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr *ngFor="let dle of dles;"
+            class="table-danger">
+            <td>{{dle?.id | slice:0:15}}...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Block only table -->
+      <table *ngIf="types?.length === 1 && types.indexOf('block') > -1" class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Block timestamp</th>
+            <th>CreatorPubKey</th>
+            <th>Transaction quantity</th>
+            <th>Voters quantity</th>
+            <th>Status</th>
+            <th>Status timestamp</th>
+            <th>Status previousBlock</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let block of blocks; let i = index;"> <!-- add "| slice:1" to the let declaration if wanna remove the GENESIS block -->
+          <tr data-toggle="modal"
+            [attr.data-target]="'#bd-example-modal-lg' + i">
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{block?.id}}">{{block?.id | slice:0:15}}...</td>
+            <td>{{block?.block?.timestamp * 1000| date: 'yyyy-MM-dd hh:mm:ss'}}</td>
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{block?.block?.creatorPubKey}}">{{block?.block?.creatorPubKey | slice:0:15}}...</td>
+            <td>{{block?.block?.transactions?.length}}</td>
+            <td>{{block?.block?.voters?.length}}</td>
+            <td>{{block?.status?.status}}</td>
+            <td>{{block?.status?.timestamp}}</td>
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{block?.status?.previousBlock}}">{{block?.status?.previousBlock | slice:0:15}}...</td>
+
+            <!-- Modal -->
+            <div [attr.id]="'bd-example-modal-lg' + i" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Detail View - BLOCK</h5><!-- BLOCK is to be changed depending on the type of node -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-3">ID</div><div class="col-9">{{block?.id}}</div>
+                        <div class="col-3">Version</div><div class="col-9">{{block?.version}}</div>
+                        <div class="col-3">Timestamp</div><div class="col-9">{{block?.block?.timestamp}}</div>
+                        <div class="col-3">Transactions</div><div class="col-9">
+                          <p *ngFor="let transaction of block?.block?.transactions">{{transaction.id}}</p>
+                        </div>
+                        <div class="col-3">CreatorPubKey</div><div class="col-9">{{block?.block?.creatorPubKey}}</div>
+                        <div class="col-3">Voters</div><div class="col-9">
+                          <p *ngFor="let voter of block?.block?.voters">{{voter}}</p>
+                        </div>
+                        <div class="col-3">Status</div><div class="col-9">{{block?.status?.status}}</div>
+                        <div class="col-3">Status timestamp</div><div class="col-9">{{block?.status?.timestamp}}</div>
+                        <div class="col-3">Previous Block</div><div class="col-9">{{block?.status?.previousBlock}}</div>
+                        <div class="col-3">NodePubKey</div><div class="col-9">{{block?.status?.nodePubKey}}</div>
+                        <div class="col-3">Status signature</div><div class="col-9">{{block?.status?.signature | slice:0:60}} {{block?.status?.signature | slice:60}}</div>
+                        <div class="col-3">Votes</div><div class="col-9">
+                          <p *ngFor="let vote of block?.votes">{{vote?.id}}</p>
+                        </div>
+                        <div class="col-3">Signature</div><div class="col-9">{{block?.signature | slice:0:60}} {{block?.signature | slice:60}}</div>
+                        <div class="col-3">Data comment</div><div class="col-9">{{block?.dataComment}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Transaction only table -->
+      <table *ngIf="types?.length === 1 && types.indexOf('transaction') > -1" class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Timestamp</th>
+            <th>Operation</th>
+            <th>PreviousTid</th>
+            <th>COwner</th>
+            <th>Payload dataAssetQuantity</th>
+            <th>Payload updateable property</th>
+            <th>Payload transferrable property</th>
+            <th>DLE Quantity</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let transaction of transactions; let i = index;"> <!-- add "| slice:1" to the let declaration if wanna remove the GENESIS block -->
+          <tr data-toggle="modal"
+            [attr.data-target]="'#bd-example-modal-lg' + i">
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{transaction?.id}}">{{transaction?.id | slice:0:15}}...</td>
+            <td>{{transaction?.transaction?.timestamp * 1000| date: 'yyyy-MM-dd hh:mm:ss'}}</td>
+            <td>{{transaction?.transaction?.operation}}</td>
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{transaction?.transaction?.previousTid}}">{{transaction?.transaction?.previousTid | slice:0:15}}...</td>
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{transaction?.transaction?.cOwner}}">{{transaction?.transaction?.cOwner | slice:0:15}}...</td>
+            <td>{{transaction?.transaction?.payload?.dataAsset?.length}}</td>
+            <td>{{transaction?.transaction?.payload?.properties?.updateable}}</td>
+            <td>{{transaction?.transaction?.payload?.properties?.transferrable}}</td>
+            <td>{{transaction?.transaction?.dle?.length}}</td>
+
+            <!-- Modal -->
+            <div [attr.id]="'bd-example-modal-lg' + i" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Detail View - TRANSACTION</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-3">ID</div><div class="col-9">{{transaction?.id}}</div>
+                        <div class="col-3">Version</div><div class="col-9">{{transaction?.version}}</div>
+                        <div class="col-3">Timestamp</div><div class="col-9">{{transaction?.transaction?.timestamp}}</div>
+                        <div class="col-3">Operation</div><div class="col-9">{{transaction?.transaction?.operation}}</div>
+                        <div class="col-3">Previoustid</div><div class="col-9">{{transaction?.transaction?.previousTid}}</div>
+                        <div class="col-3">COwner</div><div class="col-9">{{transaction?.transaction?.cOwner}}</div>
+                        <div class="col-3">fOwner</div><div class="col-9">{{transaction?.transaction?.fOwner}}</div>
+                        <div class="col-3">Payload dataAsset</div><div class="col-9">
+                          <p *ngFor="let dataAsset of transaction?.transaction?.payload?.dataAsset">{{dataAsset}}</p>
+                        </div>
+                        <div class="col-3">Payload dataOther</div><div class="col-9">
+                          <p *ngFor="let dataOther of transaction?.transaction?.payload?.dataOther">{{dataOther}}</p>
+                        </div>
+                        <div class="col-3">Payload updateable property</div><div class="col-9">{{transaction?.transaction?.payload?.properties?.updateable}}</div>
+                        <div class="col-3">Payload transferrable property</div><div class="col-9">{{transaction?.transaction?.payload?.properties?.transferrable}}</div>
+                        <div class="col-3">DLE ID</div><div class="col-9">{{transaction?.transaction?.dle?.id}}</div>
+                        <div class="col-3">DLE version</div><div class="col-9">{{transaction?.transaction?.dle?.version}}</div>
+                        <div class="col-3">DLE</div><div class="col-9">{{transaction?.transaction?.dle?.dle}}</div>
+                        <div class="col-3">DataComment</div><div class="col-9">{{transaction?.transaction?.dataComment}}</div>
+                        <div class="col-3">Signature</div><div class="col-9">{{transaction?.signature | slice:0:60}} {{transaction?.signature | slice:60}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+
+      <nav aria-label="...">
+        <ul class="pagination justify-content-end">
+          <li class="page-item disabled">
+            <span class="page-link">Previous</span>
+          </li>
+          <li class="page-item active">
+            <span class="page-link">
+              1
+              <span class="sr-only">(current)</span>
+            </span>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div> <!-- /#table-responsive -->
+  </div>
+</div>
