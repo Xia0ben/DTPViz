@@ -7,78 +7,85 @@
       <table *ngIf="types?.length > 1" class="table table-striped">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Timestamp</th>
-            <th>Status</th>
-            <th>CreatorPubKey</th>
+            <th>Type</th>
+            <th>Block ID</th>
+            <th>Block status</th>
+            <th>Transaction ID</th>
+            <th>Transaction previousTid</th>
+            <th>Transaction operation</th>
+            <th>Transaction cOwner</th>
+            <th>Vote voterPubkey</th>
+            <th>Vote currentBlock</th>
+            <th>Vote previousBlock</th>
+            <th>Vote valid</th>
+            <th>DLE ID</th>
           </tr>
         </thead>
         <tbody *ngFor="let block of blocks; let i = index;"> <!-- add "| slice:1" to the let declaration if wanna remove the GENESIS block -->
-          <tr [attr.id]="'popoverData' + i"
-            class="table-success"
-            data-content="<div class='container-fluid'><div class='row'><div class='col-3'>ID</div><div class='col-9'>1a6473107181a647uU9h4731071</div></div></div>"
-            rel="popover"
-            data-placement="top"
-            data-original-title="Preview"
-            data-trigger="hover"
-            data-html="true"
+          <tr class="table-success"
             data-toggle="modal"
             [attr.data-target]="'#bd-example-modal-lg' + i">
-            <td>{{block?.id | slice:0:15}}...</td>
-            <td>{{block?.block?.timestamp * 1000| date: 'yyyy-MM-dd hh:mm:ss'}}</td>
+            <td>Block</td>
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{block?.id}}">{{block?.id | slice:0:15}}...</td>
             <td>{{block?.status?.status}}</td>
-            <td>{{block?.block?.creatorPubKey | slice:0:15}}...</td>
-
-            <!-- Modal -->
-            <div [attr.id]="'bd-example-modal-lg' + i" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Detail View - BLOCK</h5><!-- BLOCK is to be changed depending on the type of node -->
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-3">
-                          ID
-                        </div>
-                        <div class="col-9">
-                          1a6473107181a647uU9h4731071
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
 
-          <tr *ngFor="let transaction of block?.block?.transactions;"
-            class="table-info">
-            <td>{{transaction?.id | slice:0:15}}...</td>
-            <td>{{transaction?.transaction?.timestamp * 1000| date: 'yyyy-MM-dd hh:mm:ss'}}</td>
-            <td>{{block?.status?.status}}</td>
-            <td>...</td>
-          </tr>
+          <template ngFor let-transaction [ngForOf]="block?.block?.transactions" let-i="index">
+            <tr class="table-info">
+              <td>Transaction</td>
+              <td data-toggle="tooltip" data-placement="top" attr.title="{{block?.id}}">{{block?.id | slice:0:15}}...</td>
+              <td>{{block?.status?.status}}</td>
+              <td data-toggle="tooltip" data-placement="top" attr.title="{{transaction?.id}}">{{transaction?.id | slice:0:15}}...</td>
+              <td data-toggle="tooltip" data-placement="top" attr.title="{{transaction?.transaction?.previousTid}}">{{transaction?.transaction?.previousTid | slice:0:15}}...</td>
+              <td>{{transaction?.transaction?.operation}}</td>
+              <td data-toggle="tooltip" data-placement="top" attr.title="{{transaction?.transaction?.cOwner}}">{{transaction?.transaction?.cOwner | slice:0:15}}...</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr *ngFor="let dle of transaction?.transaction?.dle;"
+              class="table-danger">
+              <td>DLE</td>
+              <td data-toggle="tooltip" data-placement="top" attr.title="{{block?.id}}">{{block?.id | slice:0:15}}...</td>
+              <td>{{block?.status?.status}}</td>
+              <td data-toggle="tooltip" data-placement="top" attr.title="{{transaction?.id}}">{{transaction?.id | slice:0:15}}...</td>
+              <td data-toggle="tooltip" data-placement="top" attr.title="{{transaction?.transaction?.previousTid}}">{{transaction?.transaction?.previousTid | slice:0:15}}...</td>
+              <td>{{transaction?.transaction?.operation}}</td>
+              <td data-toggle="tooltip" data-placement="top" attr.title="{{transaction?.transaction?.cOwner}}">{{transaction?.transaction?.cOwner | slice:0:15}}...</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td data-toggle="tooltip" data-placement="top" attr.title="{{dle?.id}}">{{dle?.id | slice:0:15}}...</td>
+            </tr>
+          </template>
 
           <tr *ngFor="let vote of block?.votes;"
             class="table-warning">
-            <td>{{vote?.id | slice:0:15}}...</td>
-            <td>{{vote?.vote?.timestamp * 1000| date: 'yyyy-MM-dd hh:mm:ss'}}</td>
+            <td>Vote</td>
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{block?.id}}">{{block?.id | slice:0:15}}...</td>
             <td>{{block?.status?.status}}</td>
-            <td>...</td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr *ngFor="let dle of dles;"
-            class="table-danger">
-            <td>{{dle?.id | slice:0:15}}...</td>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{transaction?.id}}">{{transaction?.id | slice:0:15}}...</td>
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{transaction?.transaction?.previousTid}}">{{transaction?.transaction?.previousTid | slice:0:15}}...</td>
+            <td>{{transaction?.transaction?.operation}}</td>
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{transaction?.transaction?.cOwner}}">{{transaction?.transaction?.cOwner | slice:0:15}}...</td>
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{vote?.voterPubkey}}">{{vote?.voterPubkey | slice:0:15}}...</td>
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{vote?.vote?.currentBlock}}">{{vote?.vote?.currentBlock | slice:0:15}}...</td>
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{vote?.vote?.previousBlock}}">{{vote?.vote?.previousBlock | slice:0:15}}...</td>
+            <td>{{vote?.vote?.valid}}</td>
+            <td></td>
           </tr>
         </tbody>
       </table>
@@ -341,25 +348,25 @@
           </tr>
         </tbody>
       </table>
-
-      <nav aria-label="...">
-        <ul class="pagination justify-content-end">
-          <li class="page-item disabled">
-            <span class="page-link">Previous</span>
-          </li>
-          <li class="page-item active">
-            <span class="page-link">
-              1
-              <span class="sr-only">(current)</span>
-            </span>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
-        </ul>
-      </nav>
     </div> <!-- /#table-responsive -->
+
+    <nav aria-label="...">
+      <ul class="pagination justify-content-end">
+        <li class="page-item disabled">
+          <span class="page-link">Previous</span>
+        </li>
+        <li class="page-item active">
+          <span class="page-link">
+            1
+            <span class="sr-only">(current)</span>
+          </span>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>
