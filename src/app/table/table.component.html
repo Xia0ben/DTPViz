@@ -167,7 +167,7 @@
             <th>DLE Quantity</th>
           </tr>
         </thead>
-        <tbody *ngFor="let transaction of transactions; let i = index;"> <!-- add "| slice:1" to the let declaration if wanna remove the GENESIS block -->
+        <tbody *ngFor="let transaction of transactions; let i = index;">
           <tr data-toggle="modal"
             [attr.data-target]="'#bd-example-modal-lg' + i">
             <td data-toggle="tooltip" data-placement="top" attr.title="{{transaction?.id}}">{{transaction?.id | slice:0:15}}...</td>
@@ -213,6 +213,125 @@
                         <div class="col-3">DLE</div><div class="col-9">{{transaction?.transaction?.dle?.dle}}</div>
                         <div class="col-3">DataComment</div><div class="col-9">{{transaction?.transaction?.dataComment}}</div>
                         <div class="col-3">Signature</div><div class="col-9">{{transaction?.signature | slice:0:60}} {{transaction?.signature | slice:60}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Vote only table -->
+      <table *ngIf="types?.length === 1 && types.indexOf('vote') > -1" class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Timestamp</th>
+            <th>VoterPubKey</th>
+            <th>CurrentBlock</th>
+            <th>PreviousBlock</th>
+            <th>Valid</th>
+            <th>Vote invalid reasons Quantity</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let vote of votes; let i = index;">
+          <tr data-toggle="modal"
+            [attr.data-target]="'#bd-example-modal-lg' + i">
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{vote?.id}}">{{vote?.id | slice:0:15}}...</td>
+            <td>{{vote?.vote?.timestamp * 1000| date: 'yyyy-MM-dd hh:mm:ss'}}</td>
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{vote?.voterPubkey}}">{{vote?.voterPubkey | slice:0:15}}...</td>
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{vote?.vote?.currentBlock}}">{{vote?.vote?.currentBlock | slice:0:15}}...</td>
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{vote?.vote?.previousBlock}}">{{vote?.vote?.previousBlock | slice:0:15}}...</td>
+            <td>{{vote?.vote?.valid}}</td>
+            <td>{{vote?.vote?.voteInvalidReason?.length == null ? 0 : vote?.vote?.voteInvalidReason?.length}}</td>
+
+            <!-- Modal -->
+            <div [attr.id]="'bd-example-modal-lg' + i" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Detail View - VOTE</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-3">ID</div><div class="col-9">{{vote?.id}}</div>
+                        <div class="col-3">Version</div><div class="col-9">{{vote?.version}}</div>
+                        <div class="col-3">VoterPubkey</div><div class="col-9">{{vote?.voterPubkey}}</div>
+                        <div class="col-3">Current Block</div><div class="col-9">{{vote?.vote?.currentBlock}}</div>
+                        <div class="col-3">Previous Block</div><div class="col-9">{{vote?.vote?.previousBlock}}</div>
+                        <div class="col-3">Valid</div><div class="col-9">{{vote?.vote?.valid}}</div>
+                        <div class="col-3">Vote Invalid Reasons</div><div class="col-9">
+                          <p *ngFor="let voteInvalidReason of vote?.vote?.voteInvalidReason">{{voteInvalidReason}}</p>
+                        </div>
+                        <div class="col-3">Timestamp</div><div class="col-9">{{vote?.vote?.timestamp}}</div>
+                        <div class="col-3">Signature</div><div class="col-9">{{vote?.signature | slice:0:60}} {{vote?.signature | slice:60}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- DLE only table -->
+      <table *ngIf="types?.length === 1 && types.indexOf('dle') > -1" class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Transaction</th>
+            <th>Layer</th>
+            <th>Type</th>
+            <th>dataDLE Quantity</th>
+            <th>dataMeta Quantity</th>
+            <th>dataOther Quantity</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let dle of dles; let i = index;">
+          <tr data-toggle="modal"
+            [attr.data-target]="'#bd-example-modal-lg' + i">
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{dle?.id}}">{{dle?.id | slice:0:15}}...</td>
+            <td data-toggle="tooltip" data-placement="top" attr.title="{{dle?.dle?.transaction}}">{{dle?.dle?.transaction | slice:0:15}}...</td>
+            <td>{{dle?.dle?.layer}}</td>
+            <td>{{dle?.dle?.type}}</td>
+            <td>{{dle?.dle?.dataDle.length == null ? 0 : dle?.dle?.dataDle.length}}</td>
+            <td>{{dle?.dle?.dataMeta.length == null ? 0 : dle?.dle?.dataMeta.length}}</td>
+            <td>{{dle?.dle?.dataOther.length == null ? 0 : dle?.dle?.dataOther.length}}</td>
+
+            <!-- Modal -->
+            <div [attr.id]="'bd-example-modal-lg' + i" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Detail View - VOTE</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-3">ID</div><div class="col-9">{{dle?.id}}</div>
+                        <div class="col-3">Version</div><div class="col-9">{{dle?.version}}</div>
+                        <div class="col-3">Transaction</div><div class="col-9">{{dle?.dle?.transaction}}</div>
+                        <div class="col-3">Layer</div><div class="col-9">{{dle?.dle?.layer}}</div>
+                        <div class="col-3">Type</div><div class="col-9">{{dle?.dle?.type}}</div>
+                        <div class="col-3">DataDLE</div><div class="col-9">
+                          <p *ngFor="let dataDle of dle?.dle?.dataDle">{{dataDle}}</p>
+                        </div>
+                        <div class="col-3">DataMeta</div><div class="col-9">
+                          <p *ngFor="let dataMeta of dle?.dle?.dataMeta">{{dataMeta}}</p>
+                        </div>
+                        <div class="col-3">DataOther</div><div class="col-9">
+                          <p *ngFor="let dataOther of dle?.dle?.dataOther">{{dataOther}}</p>
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -13,7 +13,7 @@ export class TableComponent implements OnInit {
   transactions: any;
   votes: any;
   dles: any;
-  types: Array<string> = ["transaction"];
+  types: Array<string> = ["dle"];
   subscription: Subscription;
 
   constructor(private zone:NgZone, private _fileInputService:FileInputService) {}
