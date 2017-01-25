@@ -15,9 +15,7 @@ export class TableComponent implements OnInit {
   votes: any;
   dles: any;
 
-  filters : any = {types: {block: true, transaction: true, vote: true, dle:true, nbTrueValues: 4},
-                   blockStatus: {decidedValid: true, decidedInvalid: true, undecided: true, nbTrueValues: 3},
-                   transactionOperation: {create: true, update: true, transfer: true, delete: true, nbTrueValues: 4}};
+  filters : any;
 
   fileInputServiceSub: Subscription;
   filtersServiceSub: Subscription;
@@ -28,6 +26,8 @@ export class TableComponent implements OnInit {
     this.fileInputServiceSub = this._fileInputService.data$
        .subscribe(data => {
          this.zone.run(() => {
+           console.log('Data update : ');
+           console.log(this.filters);
            this.data = data;
 
            this.blocks = data.blockchain.concat(data.invalidblockdepot == null ? [] : data.invalidblockdepot );
@@ -45,7 +45,9 @@ export class TableComponent implements OnInit {
      this.filtersServiceSub = this._filtersService.filters$
         .subscribe(filters => {
           this.zone.run(() => {
-            this.filters = filters;
+            window.setTimeout(() => {
+              this.filters = filters;
+            });
           });
         });
   }
@@ -53,5 +55,6 @@ export class TableComponent implements OnInit {
   ngOnDestroy() {
     // prevent memory leak when component is destroyed
     this.fileInputServiceSub.unsubscribe();
+    this.filtersServiceSub.unsubscribe();
   }
 }
