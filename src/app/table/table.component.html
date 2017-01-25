@@ -4,7 +4,7 @@
     <div class="table-responsive ">
 
       <!-- Mixt table -->
-      <table *ngIf="types?.length > 1" class="table table-striped">
+      <table *ngIf="filters?.types?.nbTrueValues > 1" class="table table-striped">
         <thead>
           <tr>
             <th>Type</th>
@@ -242,7 +242,7 @@
       </table>
 
       <!-- Block only table -->
-      <table *ngIf="types?.length === 1 && types.indexOf('block') > -1" class="table table-striped">
+      <table *ngIf="filters?.types?.nbTrueValues === 1 && filters?.types?.block" class="table table-striped">
         <thead>
           <tr>
             <th>ID</th>
@@ -311,7 +311,7 @@
       </table>
 
       <!-- Transaction only table -->
-      <table *ngIf="types?.length === 1 && types.indexOf('transaction') > -1" class="table table-striped">
+      <table *ngIf="filters?.types?.nbTrueValues === 1 && filters?.types?.transaction" class="table table-striped">
         <thead>
           <tr>
             <th>ID</th>
@@ -382,7 +382,7 @@
       </table>
 
       <!-- Vote only table -->
-      <table *ngIf="types?.length === 1 && types.indexOf('vote') > -1" class="table table-striped">
+      <table *ngIf="filters?.types?.nbTrueValues === 1 && filters?.types?.vote" class="table table-striped">
         <thead>
           <tr>
             <th>ID</th>
@@ -440,7 +440,7 @@
       </table>
 
       <!-- DLE only table -->
-      <table *ngIf="types?.length === 1 && types.indexOf('dle') > -1" class="table table-striped">
+      <table *ngIf="filters?.types?.nbTrueValues === 1 && filters?.types?.dle" class="table table-striped">
         <thead>
           <tr>
             <th>ID</th>
